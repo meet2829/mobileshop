@@ -5,16 +5,21 @@ import Expert from '../assets/expert.jpg';
 import Guarantee from '../assets/guarantee.jpg';
 import Service from '../assets/service.jpg';
 import Navbar from './Navbar';
+import HomePage from './HomePage';
 
 const Home = () => {
+
+    const handleNewsletterSignup = (email) => {
+    alert(`Subscribed with ${email}`);
+  };
   return (
-    <div className="bg-white text-gray-800 font-sans">
-      {/* Header */}
+
+    <div className=" text-gray-800 font-sans">
+      
       
       <Navbar />
 
      <div className="relative w-full h-[80vh] sm:h-[90vh] md:h-screen">
-
             <div className="custom-shape-divider-bottom-1753697948 absolute inset-0 z-0  bg-cover bg-center bg-no-repeat w-full h-full overflow-hidden"
                 style={{backgroundImage: `url(${bgImage})`}}>
                 <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
@@ -122,6 +127,51 @@ const Home = () => {
           ))}
         </div>
       </section>
+
+      <section className="bg-gray-400 text-white py-16 text-center">
+        <div className="container mx-auto">
+          <h2 className="text-4xl font-bold mb-4">Discover the Latest Smartphones</h2>
+          <p className="text-lg mb-6">Shop top brands at unbeatable prices!</p>
+          <button className="bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-200">
+            Shop Now
+          </button>
+        </div>
+      </section>
+
+      
+
+
+      <section className="bg-gray-200 py-12 text-center">
+        <div className="container mx-auto">
+          <h2 className="text-2xl font-bold mb-4">Stay Updated</h2>
+          <p className="mb-6">Subscribe to our newsletter for exclusive deals!</p>
+          <div className="flex justify-center">
+            <input
+              type="email"
+              placeholder="Enter your email"
+              className="p-3 border rounded-l-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              id="newsletter-email"
+            />
+            <button
+              onClick={() => handleNewsletterSignup(document.getElementById("newsletter-email").value)}
+              className="bg-blue-500 text-white px-6 py-3 rounded-r-lg hover:bg-blue-600"
+            >
+              Subscribe
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <footer className="bg-gray-800 text-white py-8">
+        <div className="container mx-auto text-center">
+          <p>&copy; 2025 Mobile Shop. All rights reserved.</p>
+          <div className="mt-4">
+            <a href="#" className="text-gray-400 mr-4 hover:underline">Privacy Policy</a>
+            <a href="#" className="text-gray-400 mr-4 hover:underline">Terms of Service</a>
+            <a href="#" className="text-gray-400 hover:underline">Contact Us</a>
+          </div>
+        </div>
+      </footer>
     </div>
 
   );

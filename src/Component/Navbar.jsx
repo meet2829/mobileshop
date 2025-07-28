@@ -15,25 +15,25 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="w-full bg-white shadow-md fixed top-0 left-0 z-50">
+    <nav className="w-full shadow-md fixed top-0 left-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16 items-center">
           <div className="text-2xl font-bold text-red-600">📱 MobileShop</div>
 
-          {/* Desktop Nav */}
+        
           <div className="hidden md:flex space-x-6">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
-                className="text-gray-700 hover:text-red-600 transition font-medium"
+                className="text-gray-900 hover:text-red-600 transition font-medium"
               >
                 {link.name}
               </a>
             ))}
           </div>
 
-          {/* Mobile Menu Button */}
+         
           <div className="md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
@@ -45,7 +45,7 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile Nav */}
+      
       {isOpen && (
         <div className="md:hidden px-4 pb-4 bg-white shadow-md">
           <ul className="space-y-3">
@@ -54,7 +54,7 @@ const Navbar = () => {
                 <a
                   href={link.href}
                   className="block text-gray-700 hover:text-red-600 transition"
-                  onClick={() => setIsOpen(false)} // auto close on link click
+                  onClick={() => setIsOpen(false)} 
                 >
                   {link.name}
                 </a>
