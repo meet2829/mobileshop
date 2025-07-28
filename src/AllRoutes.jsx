@@ -1,12 +1,12 @@
 import React from 'react'
 import { Route, Routes } from 'react-router-dom'
-import Home from "./Home"
-import About from "./About"
-import Blog from "./Blog"
-import ContectUs from "./ContectUs"
-import Offers from "./Offers"
-import Product from "./Product"
-import Reviews from "./Reviews"
+import Home from "./Component/Home"
+import About from "./Component/About"
+import Blog from "./Component/Blog"
+import ContectUs from "./Component/ContectUs"
+import Offers from "./Component/Offers"
+import Product from "./Component/Product"
+import Reviews from "./Component/Reviews"
 
 
 const AllRoutes = () => {
