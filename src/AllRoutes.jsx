@@ -6,7 +6,7 @@ import Blog from "./Component/Blog"
 import ContectUs from "./Component/ContectUs"
 import Offers from "./Component/Offers"
 import Product from "./Component/Product"
-import Reviews from "./Component/Reviews"
+
 
 
 const AllRoutes = () => {
@@ -19,7 +19,7 @@ const AllRoutes = () => {
         <Route path='/ContectUs' element={<ContectUs />}></Route>
         <Route path='/Offers' element={<Offers />}></Route>
         <Route path='/Product' element={<Product />}></Route>
-        <Route path='/Reviews' element={<Reviews />}></Route>
+        
       </Routes>
     </div>
   )

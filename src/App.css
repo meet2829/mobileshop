@@ -19,5 +19,5 @@
 }
 
 .custom-shape-divider-bottom-1753697948 .shape-fill {
-    fill: #FFFFFF;
+    fill: #f3f4f6; /* Tailwind's gray-200 */
 }
