@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Link as ScrollLink } from "react-scroll";
-
+import logo from '../assets/images/logo.png';
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -17,7 +17,7 @@ const Navbar = () => {
     <nav className="w-full shadow-md fixed top-0 left-0 z-50 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16 items-center">
-          <div className="text-2xl font-bold text-red-600">📱 MobileShop</div>
+          <div className="text-2xl font-bold text-red-600"><img src={logo} height={30} width={30}></img>Krishna Mobile</div>
           <div className="hidden md:flex space-x-6">
             {navLinks.map((link) => (
               <ScrollLink
