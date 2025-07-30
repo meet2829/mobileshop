@@ -1,7 +1,10 @@
 import React from 'react'
 import { Phone, Mail, MapPin, CheckCircle, Users, Award, Clock, ArrowUp, Facebook, Twitter, Instagram, Linkedin } from "lucide-react";
+import { useInView } from "react-intersection-observer";
+import CountUp from "react-countup";
 
 const Blog = () => {
+   const [ref, inView] = useInView({ triggerOnce: true });
 
   const blogPosts = [
     {
@@ -93,6 +96,55 @@ const Blog = () => {
             </div>
           </div>
         </section>
+
+        <section className="py-12 px-6 md:px-16 bg-gray-50">
+          <h3 className="text-2xl font-bold text-center mb-8">Customer Testimonials</h3>
+          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
+            {[
+              { name: "Ravi P.", review: "Best phone shop in Surat! Friendly staff and great prices." },
+              { name: "Neha S.", review: "Bought my iPhone here. Got genuine advice and accessories!" },
+              { name: "Amit D.", review: "Support even after the sale. Highly recommended!" },
+            ].map((t, idx) => (
+              <div key={idx} className="bg-white p-4 shadow rounded text-sm">
+                <p className="italic text-gray-600">“{t.review}”</p>
+                <p className="mt-2 font-medium text-right text-gray-800">— {t.name}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section className="py-16 px-4 bg-gray-50" ref={ref}>
+                  <div className="max-w-6xl mx-auto">
+                    <div className="grid md:grid-cols-3 gap-8 text-center">
+                      <div className="p-6">
+                        <div className="text-4xl font-bold text-orange-600 mb-2">
+                          2010
+                        </div>
+                        <p className="text-gray-600">
+                          Nearly a decade of trusted service in Surat
+                        </p>
+                      </div>
+                      <div className="p-6">
+                        <div className="text-4xl font-bold text-green-600 mb-2">
+                          {inView ? <CountUp end={1000} duration={1.5} suffix="+" /> : "1000+"}
+                        </div>
+                        <p className="text-gray-600">
+                          Happy customers served with quality products
+                        </p>
+                      </div>
+                      <div className="p-6">
+                        <div className="text-4xl font-bold text-orange-600 mb-2">
+                          {inView ? (
+                            <span className="text-orange-600 animate-bounce">Free</span>
+                          ) : (
+                            "Free"
+                          )}
+                        </div>
+                        <p className="text-gray-600">Accessories with every purchase</p>
+                      </div>
+                    </div>
+                  </div>
+                </section>
       
     </div>
   )

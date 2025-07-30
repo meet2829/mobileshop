@@ -3,11 +3,8 @@ import { Phone, Mail, MapPin, CheckCircle, Users, Award, Clock, ArrowUp, Faceboo
 import Navbar from "./Navbar";
 import { Carousel } from "antd";
 import { motion } from "framer-motion";
-import CountUp from "react-countup";
-import { useInView } from "react-intersection-observer";
 import { Link as ScrollLink } from "react-scroll";
 
-// Import images (ensure these paths are correct in your project)
 import bgImage from "../assets/images/MainBg.jpg";
 import AppleBG from "../assets/images/AppleBg.jpg";
 import Apple from "../assets/images/Apple.png";
@@ -21,8 +18,8 @@ import Offers from "./Offers";
 import ContectUs from "./ContectUs";
 
 const Home = () => {
-  const [ref, inView] = useInView({ triggerOnce: true });
-  const [ref1, inView1] = useInView({ triggerOnce: true });
+ 
+
 
   const [activeSlide, setActiveSlide] = useState(0);
 
@@ -50,9 +47,6 @@ const Home = () => {
     { label: "Team Growth", value: 90 },
   ];
 
-  
-
-  
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -65,12 +59,7 @@ const Home = () => {
       { label: "Careers", href: "careers" },
       { label: "Contact", href: "contact" },
     ],
-    services: [
-      { label: "Web Design", href: "web-design" },
-      { label: "Development", href: "development" },
-      { label: "Consulting", href: "consulting" },
-      { label: "Support", href: "support" },
-    ],
+   
     resources: [
       { label: "Blog", href: "blog" },
       { label: "Documentation", href: "documentation" },
@@ -169,93 +158,9 @@ const Home = () => {
           ))}
         </Carousel>
 
-        {/* About Our Company */}
-        
         <About />
-
-        {/* Progress Bar */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 m-40" ref={ref1}>
-          {stats.map((stat, index) => (
-            <div key={index} className="text-center">
-              <div className="mb-2">
-                <span className="text-2xl font-bold text-orange-600">
-                  {inView1 ? <CountUp end={stat.value} duration={2} suffix="%" /> : "0%"}
-                </span>
-              </div>
-              <div className="w-full bg-gray-200 rounded-full h-2 mb-2 overflow-hidden">
-                <div
-                  className="h-2 rounded-full transition-all duration-1000 ease-out"
-                  style={{
-                    width: inView1 ? `${stat.value}%` : "0%",
-                    backgroundImage:
-                      "linear-gradient(to right, #f97316, #fb923c, #facc15)",
-                  }}
-                />
-              </div>
-              <span className="text-sm text-gray-600">{stat.label}</span>
-            </div>
-          ))}
-        </div>
-
-        {/* Blog */}   
         <Blog />
-
-        {/* Start Our Company */}
-        <section className="py-16 px-4 bg-gray-50" ref={ref}>
-          <div className="max-w-6xl mx-auto">
-            <div className="grid md:grid-cols-3 gap-8 text-center">
-              <div className="p-6">
-                <div className="text-4xl font-bold text-orange-600 mb-2">
-                  2010
-                </div>
-                <p className="text-gray-600">
-                  Nearly a decade of trusted service in Surat
-                </p>
-              </div>
-              <div className="p-6">
-                <div className="text-4xl font-bold text-green-600 mb-2">
-                  {inView ? <CountUp end={1000} duration={1.5} suffix="+" /> : "1000+"}
-                </div>
-                <p className="text-gray-600">
-                  Happy customers served with quality products
-                </p>
-              </div>
-              <div className="p-6">
-                <div className="text-4xl font-bold text-orange-600 mb-2">
-                  {inView ? (
-                    <span className="text-orange-600 animate-bounce">Free</span>
-                  ) : (
-                    "Free"
-                  )}
-                </div>
-                <p className="text-gray-600">Accessories with every purchase</p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Customer Reviews */}
-        <section className="py-12 px-6 md:px-16 bg-gray-50">
-          <h3 className="text-2xl font-bold text-center mb-8">Customer Testimonials</h3>
-          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
-            {[
-              { name: "Ravi P.", review: "Best phone shop in Surat! Friendly staff and great prices." },
-              { name: "Neha S.", review: "Bought my iPhone here. Got genuine advice and accessories!" },
-              { name: "Amit D.", review: "Support even after the sale. Highly recommended!" },
-            ].map((t, idx) => (
-              <div key={idx} className="bg-white p-4 shadow rounded text-sm">
-                <p className="italic text-gray-600">“{t.review}”</p>
-                <p className="mt-2 font-medium text-right text-gray-800">— {t.name}</p>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* Offers Section */}
-            
-            <Offers />
-
-        {/* Contact Us */}
+        <Offers />
         <ContectUs />
 
         {/* Footer */}
@@ -308,21 +213,7 @@ const Home = () => {
                 </ul>
               </div>
 
-              <div>
-                <h4 className="text-lg font-semibold mb-6">Services</h4>
-                <ul className="space-y-3">
-                  {footerLinks.services.map((link, index) => (
-                    <li key={index}>
-                      <a
-                        href={link.href}
-                        className="text-gray-300 hover:text-white transition-colors duration-200 hover:translate-x-1 transform inline-block"
-                      >
-                        {link.label}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+              
 
               <div>
                 <h4 className="text-lg font-semibold mb-6">Resources</h4>

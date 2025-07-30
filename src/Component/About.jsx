@@ -1,8 +1,18 @@
 import React from 'react'
 import { CheckCircle, Users, Award, Clock, ArrowRight, Tag, Zap } from "lucide-react";
-
+import CountUp from "react-countup";
+import { useInView } from "react-intersection-observer";
 
 const About = () => {
+
+    const [ref1, inView1] = useInView({ triggerOnce: true });
+
+  const stats = [
+    { label: "Client Satisfaction", value: 98 },
+    { label: "Project Success", value: 95 },
+    { label: "Team Growth", value: 90 },
+  ];
+  
   const features = [
       {
         icon: <Users className="w-8 h-8 text-primary" color='green' />,
@@ -24,7 +34,7 @@ const About = () => {
     <div>
          <section id="about" className="py-12 px-4 bg-white text-gray-800">
                  <div className="max-w-5xl mx-auto text-center mt-30">
-                   <h2 className="text-3xl font-bold mb-4">About Our Company</h2>
+                   <h2 className="text-3xl font-bold mb-4">About Our Store</h2>
                    <p className="text-gray-500 text-base md:text-lg">
                      We're a forward-thinking company dedicated to creating innovative solutions that help businesses thrive in the digital landscape.
                    </p>
@@ -72,6 +82,29 @@ const About = () => {
                    </div>
                  </div>
                </section>
+
+               <div className="grid grid-cols-1 md:grid-cols-3 gap-8 m-40" ref={ref1}>
+          {stats.map((stat, index) => (
+            <div key={index} className="text-center">
+              <div className="mb-2">
+                <span className="text-2xl font-bold text-orange-600">
+                  {inView1 ? <CountUp end={stat.value} duration={2} suffix="%" /> : "0%"}
+                </span>
+              </div>
+              <div className="w-full bg-gray-200 rounded-full h-2 mb-2 overflow-hidden">
+                <div
+                  className="h-2 rounded-full transition-all duration-1000 ease-out"
+                  style={{
+                    width: inView1 ? `${stat.value}%` : "0%",
+                    backgroundImage:
+                      "linear-gradient(to right, #f97316, #fb923c, #facc15)",
+                  }}
+                />
+              </div>
+              <span className="text-sm text-gray-600">{stat.label}</span>
+            </div>
+          ))}
+        </div>
       
     </div>
   )
